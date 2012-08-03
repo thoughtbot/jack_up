@@ -58,12 +58,17 @@ $ -> # when the document is ready
     alert("'#{options.file.name}' upload failed; please retry")
     # remove the image from the dom since the upload failed
     $("img[data-id='#{options.file.__guid__}']").remove()
+
 ```
 
 Once the processor is set up, wire up drag-and-drop support:
 
 ```coffeescript
   $('.file-drop').jackUpDragAndDrop(jackUp)
+
+  # if you do not want the browser to redirect to the file when droped anywhere else on the page
+  $(document).bind 'drop dragover', (e) ->
+    e.preventDefault()
 ```
 
 If you just want to bind to a standard `<input type='file'>`:
