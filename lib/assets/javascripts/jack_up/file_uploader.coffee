@@ -15,7 +15,7 @@ class @JackUp.FileUploader
     (progress) =>
       if progress.lengthComputable
         percent = progress.loaded/progress.total*100
-        @trigger 'upload:percentComplete', percentComplete: percent, progress: progress
+        @trigger 'upload:percentComplete', percentComplete: percent, progress: progress, file: file
 
         if percent == 100
           @trigger 'upload:sentToServer', file: file
