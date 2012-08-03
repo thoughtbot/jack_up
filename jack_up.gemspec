@@ -13,5 +13,5 @@ Gem::Specification.new do |s|
   s.summary     = 'Easy AJAX file uploading in Rails'
   s.description = 'Easy AJAX file uploading in Rails'
   s.files = Dir['lib/**/*'] + ['MIT-LICENSE', 'Rakefile', 'README.rdoc']
-  s.add_dependency 'rails', '~> 3.2.7'
+  s.add_dependency 'rails', '~> 3.1'
 end
