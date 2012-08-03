@@ -30,10 +30,13 @@ class @JackUp.FileUploader
       catch error
         return
 
-      if status > 0 && status != 200
+      acceptableStatuses = [200, 201]
+      acceptableStatus = acceptableStatuses.indexOf(status) > -1
+
+      if status > 0 && !acceptableStatus
         @trigger 'upload:failure', responseText: event.target.responseText, event: event, file: file
 
-      if status == 200 && event.target.responseText && !@responded
+      if acceptableStatus && event.target.responseText && !@responded
         @responded = true
         @trigger 'upload:success', responseText: event.target.responseText, event: event, file: file
 
