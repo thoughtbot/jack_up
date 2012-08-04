@@ -125,6 +125,8 @@ This view code could be placed anywhere for immediate uploading:
 %input.standard-attachment{ name: 'standard_attachment', accept: 'image/*', type: :file, multiple: :multiple }
 ```
 
+Anything with a data-placeholder attribute will be hidden when an file is successfully dropped.
+
 If attaching assets to a different model, additionally use:
 
 ```ruby
