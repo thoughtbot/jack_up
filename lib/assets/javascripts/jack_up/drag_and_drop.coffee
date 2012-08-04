@@ -5,20 +5,21 @@ ignoreEvent = (event) ->
 class @JackUp.DragAndDrop
   constructor: (@droppableElement, @processor) ->
     @droppableElement
-      .bind("dragenter", @_drag)
+      .bind("dragenter", @_dragEnter)
+      .bind("dragleave", @_dragLeave)
       .bind("drop", @_drop)
-      .bind("drop", @_dragOut)
 
-  _drag: (event) =>
+  _dragEnter: (event) =>
     ignoreEvent event
     event.originalEvent.dataTransfer.dropEffect = "copy"
     @droppableElement.addClass("hover")
 
-  _dragOut: (event) =>
+  _dragLeave: (event) =>
     ignoreEvent event
     @droppableElement.removeClass("hover")
 
   _drop: (event) =>
     ignoreEvent event
+    @droppableElement.removeClass("hover")
     @droppableElement.find('[data-placeholder]').hide()
     @processor.processFilesForEvent(event)
