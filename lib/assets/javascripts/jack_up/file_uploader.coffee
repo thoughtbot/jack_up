@@ -1,11 +1,3 @@
-railsCSRFData = ->
-  csrfParam = $('meta[name=csrf-param]').attr('content')
-  csrfToken = $('meta[name=csrf-token]').attr('content')
-
-  formData = {}
-  formData[csrfParam] = csrfToken
-  JSON.stringify formData
-
 class @JackUp.FileUploader
   constructor: (@options) ->
     @path = @options.path
@@ -49,7 +41,7 @@ class @JackUp.FileUploader
 
     xhr.setRequestHeader 'Content-Type', file.type
     xhr.setRequestHeader 'X-File-Name', file.name
-    xhr.setRequestHeader 'X-Query-Params', railsCSRFData()
+    xhr.setRequestHeader 'X-CSRF-Token', $('meta[name=csrf-token]').attr('content')
 
     @trigger 'upload:start', file: file
     xhr.send file
