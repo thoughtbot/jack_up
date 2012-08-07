@@ -89,14 +89,7 @@ For instant file uploading:
 # Gemfile
 gem 'rails'
 gem 'paperclip'
-gem 'rack-raw-upload'
-```
 
-Using the `rack-raw-upload` gem allows for accessing the file posted to the
-controller via `params[:file]`; this makes it incredibly easy to handle file
-uploads.
-
-```ruby
 # app/models/asset.rb
 class Asset < ActiveRecord::Base
   has_attached_file :photo
