@@ -32,8 +32,9 @@ Create a JackUp.Processor, binding to various events emitted.
 
 ```coffeescript
 $ -> # when the document is ready
-  # create a new processor with the endpoint to where your assets are uploaded
-  jackUp = new JackUp.Processor(path: '/assets')
+  # Create a new processor with the endpoint to where your assets are uploaded.
+  # You can specify the file's param key by setting fileParam, which defaults to 'file'.
+  jackUp = new JackUp.Processor(path: '/assets', fileParam: 'asset')
 
   # called if upload is an image; returns an image jQuery object with src attribute assigned
   jackUp.on 'upload:imageRenderReady', (e, options) ->

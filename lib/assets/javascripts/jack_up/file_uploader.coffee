@@ -4,12 +4,13 @@ railsFormData = ->
 
   formData = new FormData()
   formData.append(csrfParam, csrfToken)
-  #return the FormData object
+
   formData
 
 class @JackUp.FileUploader
   constructor: (@options) ->
     @path = @options.path
+    @fileParam = @options.fileParam || 'file'
     @responded = false
 
   _onProgressHandler: (file) =>
@@ -49,10 +50,7 @@ class @JackUp.FileUploader
     xhr.open 'POST', @path, true
 
     formData = railsFormData()
-
-    #append the file
-    #we should probably make the field name configurable
-    formData.append('file', file)
+    formData.append(@fileParam, file)
 
     @trigger 'upload:start', file: file
     xhr.send formData

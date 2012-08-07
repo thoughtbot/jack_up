@@ -16,6 +16,7 @@ filesWithData = (event) ->
 class @JackUp.Processor
   constructor: (options) ->
     @uploadPath = options.path
+    @fileParam = options.fileParam
 
   processFilesForEvent: (event) =>
     _.each filesWithData(event), (file) =>
@@ -29,7 +30,7 @@ class @JackUp.Processor
 
       reader.readAsDataURL(file)
 
-      fileUploader = new JackUp.FileUploader(path: @uploadPath)
+      fileUploader = new JackUp.FileUploader(path: @uploadPath, fileParam: @fileParam)
       @bubble 'upload:start', 'upload:success', 'upload:failure', 'upload:sentToServer', 'upload:percentComplete',
         from: fileUploader
 
