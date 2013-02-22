@@ -187,4 +187,4 @@ jackUp.on "upload:success", (e, options) ->
 
 ## License
 
-JackUp is copyright 2012 Josh Steiner, Josh Clayton, and thoughtbot, inc., and may be redistributed under the terms specified in the LICENSE file.
+JackUp is copyright 2012-2013 Josh Steiner, Josh Clayton, and thoughtbot, inc., and may be redistributed under the terms specified in the LICENSE file.
