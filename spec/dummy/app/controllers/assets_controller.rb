@@ -1,9 +1,8 @@
 class AssetsController < ApplicationController
-  respond_to :json
-
   def create
-    @asset = Asset.new(file: params[:file])
-    @asset.save
-    respond_with @asset
+    asset = Asset.new(file: params[:file])
+    asset.save
+
+    render json: asset
   end
 end
