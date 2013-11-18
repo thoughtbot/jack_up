@@ -10,5 +10,10 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
+    run_dummy_app_migrations
+  end
+
+  def run_dummy_app_migrations
+    ActiveRecord::Migrator.migrate(Rails.root.join('db', 'migrate'))
   end
 end
