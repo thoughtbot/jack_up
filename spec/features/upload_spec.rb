@@ -5,7 +5,7 @@ feature 'AJAX file uploading', js: true do
     visit root_path
     attach_file 'upload', Rails.root.join(*%w(public ralph.png)).to_s
 
-    find('.attachments img').should be_present
-    Asset.last.file_file_name.should eq 'ralph.png'
+    expect(page).to have_css('.attachments img')
+    expect(Asset.last.file_file_name).to eq 'ralph.png'
   end
 end
