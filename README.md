@@ -23,7 +23,7 @@ Modify your `application.js` manifest:
 
 ### Requirements
 
-Rails 3.1 (for the asset pipeline), CoffeeScript, and both jQuery and
+Rails 4.0+, CoffeeScript, and both jQuery and
 Underscore.js included in your `application.js` manifest.
 
 ### Usage
@@ -99,19 +99,24 @@ uploads.
 # app/models/asset.rb
 class Asset < ActiveRecord::Base
   has_attached_file :photo
-  attr_accessible :photo
 end
 
 # app/controllers/assets_controller.rb
 class AssetsController < ApplicationController
   def create
-    @asset = Asset.new(photo: params[:file])
+    @asset = Asset.new(photo: asset_params[:file])
 
     if @asset.save
       render json: @asset
     else
       head :bad_request
     end
+  end
+
+  private
+
+  def asset_params
+    params.permit(:file)
   end
 end
 ```
@@ -134,7 +139,6 @@ If attaching assets to a different model, additionally use:
 class Post < ActiveRecord::Base
   has_many :assets, dependent: :destroy
 
-  attr_accessible :asset_ids, :assets_attributes
   accepts_nested_attributes_for :assets
 end
 
@@ -146,9 +150,15 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(params[:post])
+    @post = Post.new(post_params)
     @post.save
     respond_with @post
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:asset_ids, :assets_attributes)
   end
 end
 ```
