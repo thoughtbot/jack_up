@@ -6,3 +6,7 @@ gemfile:
   - gemfiles/4.0.gemfile
   - gemfiles/4.1.gemfile
   - gemfiles/4.2.gemfile
+
+rvm:
+  - 2.1.5
+  - 2.2.1
