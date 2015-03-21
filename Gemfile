@@ -2,6 +2,8 @@ source "http://rubygems.org"
 
 gemspec
 
+gem "appraisal", "~> 1.0"
+
 # The following gems are used by the dummy application
 gem 'capybara'
 gem 'coffee-rails'
