@@ -192,7 +192,7 @@ jackUp.on "upload:success", (e, options) ->
   assetIdsElement = $("<input type='hidden' name='post[asset_ids][]'>").val(assetId)
   # append it to the form so saving the form associates the created post
   # with the uploaded assets
-  $(".file-drop").parent("form").append(assetIdsElement)
+  $(".file-drop").closest("form").append(assetIdsElement)
 ```
 
 ## License
