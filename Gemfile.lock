@@ -179,6 +179,7 @@ DEPENDENCIES
   high_voltage
   jack_up!
   jquery-rails
+  json
   paperclip (>= 3.1.4)
   rack-raw-upload
   rspec-rails

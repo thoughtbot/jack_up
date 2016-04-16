@@ -13,6 +13,7 @@ gem "rack-raw-upload"
 gem "rspec-rails"
 gem "selenium-webdriver"
 gem "sqlite3"
+gem "json"
 gem "rails", "~> 4.2.0"
 
 gemspec :path => "../"
