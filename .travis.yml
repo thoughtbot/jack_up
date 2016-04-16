@@ -3,11 +3,16 @@ before_install:
   - "sh -e /etc/init.d/xvfb start"
 
 gemfile:
-  - gemfiles/4.0.gemfile
-  - gemfiles/4.1.gemfile
-  - gemfiles/4.2.gemfile
+  - gemfiles/rails4.0.gemfile
+  - gemfiles/rails4.1.gemfile
+  - gemfiles/rails4.2.gemfile
 
 rvm:
   - 2.1.5
   - 2.2.2
   - 2.3.0
+
+install: "bundle install --jobs 8"
+script: "bundle exec rake"
+sudo: false
+cache: bundler

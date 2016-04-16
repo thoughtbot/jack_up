@@ -42,7 +42,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    appraisal (1.0.3)
+    appraisal (2.1.0)
       bundler
       rake
       thor (>= 0.14.0)
@@ -173,7 +173,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  appraisal (~> 1.0)
+  appraisal (~> 2.1.0)
   capybara
   coffee-rails
   database_cleaner
@@ -186,3 +186,6 @@ DEPENDENCIES
   rspec-rails
   selenium-webdriver
   sqlite3
+
+BUNDLED WITH
+   1.11.2
