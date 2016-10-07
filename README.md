@@ -99,7 +99,11 @@ gem 'rack-raw-upload'
 
 Using the `rack-raw-upload` gem allows for accessing the file posted to the
 controller via `params[:file]`; this makes it incredibly easy to handle file
-uploads.
+uploads. 
+Do not forget to add to application.rb and restart the server for rack-raw-upload to work: 
+```ruby
+config.middleware.use 'Rack::RawUpload'
+```
 
 ```ruby
 # app/models/asset.rb
