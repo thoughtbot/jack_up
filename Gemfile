@@ -1,6 +1,8 @@
-source "http://rubygems.org"
+source "https://rubygems.org"
 
 gemspec
+
+gem "appraisal", "~> 2.1.0"
 
 # The following gems are used by the dummy application
 gem 'capybara'
@@ -13,3 +15,4 @@ gem 'rack-raw-upload'
 gem 'rspec-rails'
 gem 'selenium-webdriver'
 gem 'sqlite3'
+gem 'json'
