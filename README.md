@@ -1,3 +1,9 @@
+# Deprecated as of October 7, 2016
+
+Given other [both](https://shubox.io/) [paid](https://www.filestack.com/) and
+[free](http://josephndungu.com/tutorials/ajax-file-upload-with-dropezonejs-and-paperclip-rails)
+uploading tools available, JackUp has been deprecated.
+
 # JackUp
 
 ## Easy AJAX file uploading in Rails.
